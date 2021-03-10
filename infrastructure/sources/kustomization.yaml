@@ -6,3 +6,4 @@ resources:
   - podinfo.yaml
   - pravega.yaml
   - jetstack.yaml
+  - banzaicloud.yaml

@@ -1,0 +1,21 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kafka-operator
+  namespace: kafka-operator
+spec:
+  releaseName: kafka-operator
+  chart:
+    spec:
+      chart: kafka-operator
+      sourceRef:
+        kind: HelmRepository
+        name: banzaicloud
+        namespace: flux-system
+      version: "0.2.18"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://artifacthub.io/packages/helm/banzaicloud-stable/kafka-operator
