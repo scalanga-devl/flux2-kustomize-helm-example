@@ -5,6 +5,5 @@ resources:
   - podinfo.yaml
   - pravega.yaml
   - jetstack.yaml
-  - kafka-operator.yaml
   - codecentric.yaml
   - zenko.yaml

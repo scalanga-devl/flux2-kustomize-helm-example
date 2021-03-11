@@ -7,12 +7,11 @@ spec:
   releaseName: kafka-operator
   chart:
     spec:
-      chart: kafka-operator
+      chart: solution-base/kafka/charts/kafka-operator
       sourceRef:
-        kind: HelmChart
-        name: kafka-operator
-        namespace: flux-system
-      version: "0.2.18"
+        kind: GitRepository
+        name: zenko
+        namespace: default
   interval: 1h0m0s
   install:
     remediation:
