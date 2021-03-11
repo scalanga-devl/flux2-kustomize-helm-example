@@ -29,3 +29,15 @@ spec:
       KUBEDB_PRIORITY_CLASS: system-cluster-critical
       KUBEDB_OPERATOR_TAG: v0.13.0-rc.0
       KUBEDB_IMAGE_PULL_SECRET: ""
+  patchesStrategicMerge:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: kubedb-operator
+      namespace: kubedb
+      labels:
+        app: kubedb
+    spec:
+      template:
+        spec:
+          imagePullSecrets: []
