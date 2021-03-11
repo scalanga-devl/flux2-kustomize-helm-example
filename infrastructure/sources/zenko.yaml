@@ -10,5 +10,4 @@ spec:
     # exclude all
     docs/
   ref:
-    branch: development/2.0
-
+    branch: feature/gitops-tests
