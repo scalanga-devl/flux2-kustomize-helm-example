@@ -1,0 +1,28 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: kubedb
+  namespace: kubedb
+spec:
+  interval: 5m
+  path: "./solution-base/kubedb"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: zenko
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: kubedb-operator
+      namespace: kubedb
+  timeout: 2m
+  postBuild:
+    substitute:
+      KUBEDB_NAMESPACE: "kubedb"
+      KUBEDB_SERVICE_ACCOUNT: "kubedb-operator"
+      KUBEDB_IMAGE_NAME: operator
+      KUBEDB_OPERATOR_NAME: kubedb-operator
+      KUBEDB_CERT_NAME: kubedb-operator-apiserver-cert
+      KUBEDB_DOCKER_REGISTRY: kubedb
+      KUBEDB_PRIORITY_CLASS: system-cluster-critical
+      KUBEDB_OPERATOR_TAG: v0.13.0-rc.0
