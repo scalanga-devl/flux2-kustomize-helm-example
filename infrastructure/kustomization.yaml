@@ -6,3 +6,4 @@ resources:
   - zookeeper
   - cert-manager
   - kafka-operator
+  - keycloak

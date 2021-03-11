@@ -7,3 +7,4 @@ resources:
   - pravega.yaml
   - jetstack.yaml
   - banzaicloud.yaml
+  - codecentric.yaml
