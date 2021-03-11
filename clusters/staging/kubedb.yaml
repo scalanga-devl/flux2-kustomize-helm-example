@@ -6,8 +6,7 @@ metadata:
   namespace: kubedb
 spec:
   interval: 5m
-  resources:
-    - solution-base/kubedb
+  path: solution-base/kubedb
   prune: true
   sourceRef:
     kind: GitRepository
