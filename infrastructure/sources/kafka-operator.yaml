@@ -8,5 +8,4 @@ spec:
   sourceRef:
     name: zenko
     kind: GitRepository
-    namespace: default
   interval: 10m
