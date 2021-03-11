@@ -10,9 +10,9 @@ spec:
       chart: keycloak
       sourceRef:
         kind: HelmRepository
-        name: banzaicloud
+        name: codecentric
         namespace: flux-system
-      version: "0.2.18"
+      version: "9.0.5"
   interval: 1h0m0s
   install:
     remediation:
