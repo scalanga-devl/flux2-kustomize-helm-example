@@ -5,6 +5,8 @@ namespace: keycloak
 resources:
   - namespace.yaml
   - release.yaml
+  - storageclass.yaml
+  - volume.yaml
 configMapGenerator:
   - name: keycloak-values
     files:

@@ -49,7 +49,7 @@ postgresql:
     - ReadWriteOnce
     size: 10Gi
     annotations: {}
-    storageClass: "standard"
+    storageClass: "keycloak"
     mountPath: /keycloak/postgresql
   replication:
     enabled: true

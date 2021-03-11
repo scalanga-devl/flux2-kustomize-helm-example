@@ -1,0 +1,10 @@
+---
+apiVersion: storage.metalk8s.scality.com/v1alpha1
+kind: Volume
+metadata:
+  name: keycloak-postgres
+spec:
+  nodeName: bootstrap
+  storageClassName: keycloak
+  sparseLoopDevice:
+    size: 10Gi
