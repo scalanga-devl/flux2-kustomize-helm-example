@@ -6,4 +6,3 @@ resources:
   - cert-manager
   - kafka-operator
   - keycloak
-  - kubedb
