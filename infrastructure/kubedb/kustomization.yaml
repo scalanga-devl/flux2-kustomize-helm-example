@@ -5,7 +5,20 @@ metadata:
   namespace: kubedb
 spec:
   interval: 5m
-  path: "./solution-base/kubedb"
+  resources:
+    - appcatalog-user-roles.yaml
+    - certs.yaml
+    - kubedb-catalog-mongodb.yaml
+    - kubedb-catalog-redis.yaml
+    - mutating-webhook.yaml
+    - operator.yaml
+    - psp-mongodb.yaml
+    - psp-operator.yaml
+    - psp-redis.yaml
+    - rbac-list.yaml
+    - service-account.yaml
+    - user-roles.yaml
+    - validating-webhook.yaml
   prune: true
   sourceRef:
     kind: GitRepository
