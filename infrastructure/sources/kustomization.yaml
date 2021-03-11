@@ -7,3 +7,4 @@ resources:
   - jetstack.yaml
   - banzaicloud.yaml
   - codecentric.yaml
+  - zenko.yaml
