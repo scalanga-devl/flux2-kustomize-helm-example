@@ -11,7 +11,6 @@ spec:
       sourceRef:
         kind: GitRepository
         name: ringx
-        namespace: default
   interval: 1h0m0s
   install:
     remediation:
