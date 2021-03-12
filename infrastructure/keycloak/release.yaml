@@ -11,6 +11,7 @@ spec:
       sourceRef:
         kind: GitRepository
         name: ringx
+        namespace: flux-system
   interval: 1h0m0s
   install:
     remediation:
