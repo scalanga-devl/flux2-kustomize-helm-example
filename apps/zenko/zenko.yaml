@@ -2,7 +2,6 @@ apiVersion: zenko.io/v1alpha1
 kind: Zenko
 metadata:
   name: zenko
-  namespace: default
 spec:
   version: latest
   replicas: 1
@@ -23,16 +22,24 @@ spec:
       hostname: sts.zenko.local
   management:
     provider: InCluster
-    oidc:
-      discoveryUrl: 'http://keycloak.local/auth/realms/dev/.well-known/openid-configuration'
-      uiClientId: zenko-ui
-      vaultClientId: zenko-vault
-    api:
-      ingress:
-        hostname: "managementapi.zenko.local"
     ui:
       ingress:
         hostname: ui.zenko.local
+    oidc:
+      provider: 'http://keycloak.zenko.local/auth/realms/zenko-realm'
+      uiClientId: zenko-ui
+      vaultClientId: zenko-ui
+    api:
+      ingress:
+        hostname: management.zenko.local
+      allowFrom:
+      - 172.16.0.0/12
+      - 10.0.0.0/8
+  ingress:
+    workloadPlaneClass: 'nginx-control-plane'
+    controlPlaneClass: 'nginx-control-plane'
+    annotations:
+      nginx.ingress.kubernetes.io/proxy-body-size: 0m
   registry:
     imagePullSecretNames:
       - registry
