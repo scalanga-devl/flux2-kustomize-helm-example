@@ -1,7 +1,7 @@
 ---
 # values were retrieved from RingX repository.
 # TODO: find a way to keep them in sync with GitOps
-replicas: 2
+replicas: 1
 
 # Additional Pod annotations
 podAnnotations: {}
