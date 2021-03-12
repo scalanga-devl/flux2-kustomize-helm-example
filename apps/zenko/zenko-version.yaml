@@ -1,0 +1,20 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: zenko-version-cr
+  namespace: default
+spec:
+  interval: 5m
+  path: solution/zenkoversion.yaml
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: zenko
+    namespace: flux-system
+  timeout: 2m
+  postBuild:
+    substitute:
+      VERSION_FULL: latest
+  dependsOn:
+    - name: zenko-operator-crds

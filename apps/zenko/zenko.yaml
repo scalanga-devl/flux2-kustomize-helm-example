@@ -1,0 +1,38 @@
+apiVersion: zenko.io/v1alpha1
+kind: Zenko
+metadata:
+  name: zenko
+  namespace: default
+spec:
+  version: latest
+  replicas: 1
+  mongodb:
+    provider: KubeDB
+  redis:
+    provider: KubeDB
+  kafka:
+    provider: Managed
+  zookeeper:
+    provider: Managed
+  localData: {}
+  vault:
+    enable: true
+    iamIngress:
+      hostname: iam.zenko.local
+    stsIngress:
+      hostname: sts.zenko.local
+  management:
+    provider: InCluster
+    oidc:
+      discoveryUrl: 'http://keycloak.local/auth/realms/dev/.well-known/openid-configuration'
+      uiClientId: zenko-ui
+      vaultClientId: zenko-vault
+    api:
+      ingress:
+        hostname: "managementapi.zenko.local"
+    ui:
+      ingress:
+        hostname: ui.zenko.local
+  registry:
+    imagePullSecretNames:
+      - registry
