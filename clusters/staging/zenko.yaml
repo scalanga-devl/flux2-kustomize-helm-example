@@ -10,6 +10,8 @@ spec:
   dependsOn:
     - name: infrastructure
       namespace: flux-system
+    - name: zenko-operator-crds
+      namespace: default
   sourceRef:
     kind: GitRepository
     name: flux-system
