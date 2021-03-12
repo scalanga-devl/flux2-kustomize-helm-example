@@ -5,6 +5,7 @@ metadata:
   name: zenko-operator-crds
   namespace: default
 spec:
+  targetNamespace: default
   interval: 5m
   path: solution/operator/deploy
   prune: true

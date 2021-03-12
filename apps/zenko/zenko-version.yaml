@@ -5,6 +5,7 @@ metadata:
   name: zenko-version-cr
   namespace: default
 spec:
+  targetNamespace: default
   interval: 5m
   path: solution/zenkoversion.yaml
   prune: true
@@ -18,3 +19,4 @@ spec:
       VERSION_FULL: latest
   dependsOn:
     - name: zenko-operator-crds
+      namespace: default
