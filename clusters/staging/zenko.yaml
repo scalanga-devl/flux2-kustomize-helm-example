@@ -9,6 +9,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name: infrastructure
+      namespace: flux-system
   sourceRef:
     kind: GitRepository
     name: flux-system
