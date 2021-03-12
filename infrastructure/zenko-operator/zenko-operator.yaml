@@ -20,6 +20,8 @@ spec:
           image: registry.scality.com/sf-eng/zenko-operator:6be152a
           command:
           - zenko-operator
+          imagePullSecret:
+          - name: registry
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
