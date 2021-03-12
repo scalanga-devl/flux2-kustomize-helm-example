@@ -16,7 +16,7 @@ spec:
     - apiVersion: apps/v1
       kind: Deployment
       name: zookeeper-operator
-      namespace: kubedb
+      namespace: zookeeper-operator
   timeout: 2m
   postBuild:
     substitute:
