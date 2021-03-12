@@ -7,12 +7,11 @@ spec:
   releaseName: keycloak
   chart:
     spec:
-      chart: keycloak
+      chart: solutions/iam/keycloak/charts/
       sourceRef:
-        kind: HelmRepository
-        name: codecentric
-        namespace: flux-system
-      version: "9.0.5"
+        kind: GitRepository
+        name: ringx
+        namespace: default
   interval: 1h0m0s
   install:
     remediation:

@@ -1,17 +1,26 @@
-replicas: 1
+---
+# values were retrieved from RingX repository.
+# TODO: find a way to keep them in sync with GitOps
+replicas: 2
+
+# Additional Pod annotations
+podAnnotations: {}
 
 ingress:
   enabled: true
-  servicePort: http
-  tls: [  ]
+  servicePort: https
+  tls: false
   annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: 'HTTP'
-    nginx.ingress.kubernetes.io/enable-cors: 'true'
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    kubernetes.io/ingress.class: "nginx-control-plane"
   rules:
-    - host: 'keycloak.zenko.local'
+    - host: ''
       paths:
-        - /
+        - /auth
 
+# Additional environment variables for Keycloak
+# For the discovery protocol, the chart already deploys a headless service by
+# default, we could also use KUBE_PING for discovery
 extraEnv: |
   - name: KEYCLOAK_USER
     value: admin
@@ -41,7 +50,17 @@ extraEnv: |
       -Djboss.site.name=$(KEYCLOAK_NAMESPACE)
   - name: KEYCLOAK_STATISTICS
     value: all
+serviceMonitor:
+  enabled: true
+  labels:
+    release: prometheus-operator
 
+# }}}
+
+# {{{ PostgreSQL sub-chart
+
+# Here, we can override postgresql chart settings
+# See here for more: https://hub.helm.sh/charts/bitnami/postgresql-ha
 postgresql:
   persistence:
     enabled: true

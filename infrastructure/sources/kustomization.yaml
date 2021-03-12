@@ -5,5 +5,5 @@ resources:
   - podinfo.yaml
   - pravega.yaml
   - jetstack.yaml
-  - codecentric.yaml
   - zenko.yaml
+  - ringx.yaml
