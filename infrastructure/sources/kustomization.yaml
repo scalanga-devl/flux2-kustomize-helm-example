@@ -4,6 +4,5 @@ namespace: flux-system
 resources:
   - podinfo.yaml
   - pravega.yaml
-  - jetstack.yaml
   - zenko.yaml
   - ringx.yaml
