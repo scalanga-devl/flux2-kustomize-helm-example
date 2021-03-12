@@ -7,7 +7,7 @@ spec:
   releaseName: cert-manager
   chart:
     spec:
-      chart: cert-manager
+      chart: solutions/cert-manager/charts/cert-manager
       sourceRef:
         kind: GitRepository
         name: ringx
