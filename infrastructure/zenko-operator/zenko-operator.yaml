@@ -14,6 +14,7 @@ spec:
       labels:
         name: zenko-operator
     spec:
+      serviceAccountName: zenko-operator
       imagePullSecrets:
         - name: registry
       containers:
