@@ -11,4 +11,5 @@ spec:
     docs/
   ref:
     branch: development/1.0
-
+  secretRef:
+    name: git-https-credentials
