@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: zookeeper-operator
 resources:
   - namespace.yaml
-  - release.yaml
+  - zookeeper.yaml

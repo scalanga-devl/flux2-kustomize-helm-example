@@ -1,0 +1,26 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: zookeeper
+  namespace: zookeeper-operator
+spec:
+  interval: 5m
+  path: solution-base/zookeeper
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: zenko
+    namespace: flux-system
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: zookeeper-operator
+      namespace: kubedb
+  timeout: 2m
+  postBuild:
+    substitute:
+      ZOOKEEPER_NAMESPACE: zookeeper-operator
+      ZOOKEEPER_IMAGE_PREFIX: pravega
+      ZOOKEEPER_IMAGE_NAME: zookeeper-operator
+      ZOOKEEPER_OPERATOR_TAG: '0.2.7'
